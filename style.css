@@ -1,0 +1,84 @@
+/*Animations*/
+@keyframes AniSmolImage{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.1);
+    }
+}
+
+/*Font declarations*/
+@font-face {
+    font-family: KiwiMaru;
+    src: url("data/fonts/KiwiMaru-Regular.ttf");
+}
+
+/*Some root and global stuff*/
+:root {
+    --accent: #1eecdb;
+    --image-bg: #212121;
+}
+*::selection{
+    background: var(--accent);
+}
+
+/*The document itself*/
+body{
+    background: #333;
+    font-family: KiwiMaru, Arial, Helvetica, sans-serif;
+    color: white;
+    
+    margin: 0;
+    padding: 0;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+    max-width: 500px;
+    margin: 0 auto 0 auto;
+
+    padding: 10px;
+}
+
+.mainImage{
+    background: #212121;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+
+    cursor: pointer;
+}
+.mainImage, .mainTabs div{
+    border-radius: 4px;
+    border-bottom: 2px solid #00000088;
+    box-shadow: 0 2px 5px #00000022;
+}
+
+.mainTabs{
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+}
+.mainTabs div{
+    flex-grow: 1;
+
+    background: var(--image-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 5px;
+
+    cursor: pointer;
+}
+.mainTabs div:hover{
+    animation: AniSmolImage;
+    animation-duration: 100ms;
+    animation-fill-mode: both;
+}
+
+.mainTabs div:last-child { margin: 5px 0 5px 5px; }
+.mainTabs div:first-child { margin: 5px 5px 5px 0; }
